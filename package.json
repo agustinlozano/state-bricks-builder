@@ -1,0 +1,39 @@
+{
+  "name": "state-bricks-builder",
+  "version": "1.0.0",
+  "description": "IFC data parser",
+  "main": "index.js",
+ "scripts": {
+    "build": "rollup -c ./rollup.config.js",
+    "watch": "rollup -w -c ./rollup.config.js",
+    "test": "standard && node my-tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agustinlozano/state-bricks-builder.git"
+  },
+  "keywords": [],
+  "author": "Bimtrazer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agustinlozano/state-bricks-builder/issues"
+  },
+  "homepage": "https://github.com/agustinlozano/state-bricks-builder#readme",
+  "dependencies": {
+    "web-ifc": "0.0.36",
+    "web-ifc-viewer": "1.0.210"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "13.3.0",
+    "rollup": "2.78.1",
+    "standard": "17.0.0"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json",
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    }
+  }
+}
