@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/src/assets/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="src/styles/main.css" />
+  <link rel="stylesheet" href="src/styles/tree.css" />
+  <link rel="stylesheet" href="src/styles/button.css" />
+  <link rel="stylesheet" href="src/styles/loader.css" />
+  <title>Bimtrazer | IFC Block Builder</title>
+</head>
+
+<body>
+  <div id="model-container">
+    <div id="viewer-container"></div>
+    <div id="bim-app" class="border">
+      <!-- Load project section -->
+      <div id="load-container">
+        <div class="icon-container">
+          <div class="object-wrapper">
+            <object data="/src/assets/building.svg"></object>
+          </div>
+        </div>
+        <div id="load-model">
+          <label for="file-input" class="border shadow button">
+            <div class="button__content">
+              <div class="button__icon">
+                <object data="/src/assets/upload.svg"></object>
+              </div>
+              <p class="button__text">Select an IFC file</p>
+            </div>
+          </label>
+          <input type="file" name="load" id="file-input" class="custom-file-input" />
+        </div>
+        <!-- ------------------- -->
+      </div>
+    </div>
+  </div>
+  <div id="btz-info-container">
+    <div class="btz-information border">
+      <div class="mb-md" id="project-info">
+        <p class="font-medium mb-sm">PROJECT INFO [<span id="vm-id"></span>]</p>
+        <p>Name: <span id="project-name"></span></p>
+        <p>Notes: <span id="project-notes"></span></p>
+      </div>
+      <ul id="btz-blocks-output">
+        <!-- Cool btz-description is gonna render here -->
+      </ul>
+    </div>
+    <div class="btz-information border">
+      <div class="mb-md">
+        <p class="font-medium mb-sm">Props of an element</p>
+        <!-- <p>Number of properties: <span id="prop-set-length"></span></p> -->
+      </div>
+      <pre id="props-output" class="message">
+        <!-- Cool element props is gonna render here -->
+      </pre>
+    </div>
+  </div>
+  <script src="src/bundle.js"></script>
+</body>
+
+</html>
