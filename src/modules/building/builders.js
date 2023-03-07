@@ -23,10 +23,11 @@ export async function buildBlocks (modelID, prebuiltBlocks) {
     const elements = await findElements(modelID, RelProps)
     const textDescriptions = await getDescriptions(modelID, HasProperties)
 
-    for (const { description } of textDescriptions) {
+    for (const { description, name } of textDescriptions) {
       blocks.push({
         BtzCode: 'UNASSIGNED',
         BtzDescription: description,
+        BtzDescriptionType: name,
         BtzStartDate: null,
         BtzEndDate: null,
         Elements: elements,
