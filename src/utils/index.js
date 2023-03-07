@@ -3,12 +3,22 @@ import shortcuts from './shortcuts'
 
 export {
   renderSelectedElm,
-  renderFiveJsonObjects,
-  renderJsonData,
   renderShadows,
   renderTree,
   createNode,
-  generateTreeLogic
+  generateTreeLogic,
+  renderProjectInfo
 } from './renderStuff'
+
+export {
+  normalizeGroundFloor,
+  parseUnicode
+} from './normalize'
+
+export {
+  validate,
+  validateAnArray,
+  checkException
+} from './validate'
 
 export { highlightMaterial, shortcuts }
