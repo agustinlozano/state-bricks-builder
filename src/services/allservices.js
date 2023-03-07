@@ -9,15 +9,17 @@ export const projectId =
 
 const BASE_URL = `http://${projectId}.bimtrazer.com`
 
-export async function assignBlocksDescription (descriptionsMap) {
+export async function postDescriptionMap (descriptionsMap) {
   descriptionsMap = transformDescriptions(descriptionsMap)
+
+  console.log('descriptionsMap', descriptionsMap)
 
   const URL = BASE_URL + '/api/PostDataProj'
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      ID: 'DescriptionMap',
+      ID: 'assignBlocksDescription',
       DATA: descriptionsMap
     })
   }
