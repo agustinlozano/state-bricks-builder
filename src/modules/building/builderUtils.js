@@ -136,6 +136,47 @@ export function joinBlocksWithSameDescription (blocks) {
   return Object.values(blocksWithSameDescription)
 }
 
+// a function to get all the DescriptionTypes of blcoks withouth duplicates
+export function getDescriptionTypes (blocks) {
+  const descriptionTypes = []
+
+  blocks.forEach(block => {
+    const { BtzDescriptionType } = block
+
+    if (!descriptionTypes.includes(BtzDescriptionType)) {
+      descriptionTypes.push(BtzDescriptionType)
+    }
+  })
+
+  return descriptionTypes.map(type => {
+    return {
+      description: type,
+      blocks: []
+    }
+  })
+}
+
+// push the block codes into typeOfDescriptions.blocks according to the block.BtzDescriptionType
+export function pushBlockCodes (blocks, typeOfDescriptions) {
+  blocks.forEach(block => {
+    const { BtzDescriptionType, BtzCode } = block
+
+    typeOfDescriptions.forEach(type => {
+      if (type.description === BtzDescriptionType) {
+        type.blocks.push(BtzCode)
+      }
+    })
+  })
+}
+
+export function deleteDescriptionType (blocks) {
+  return blocks.map(block => {
+    const { BtzDescriptionType, ...rest } = block
+
+    return rest
+  })
+}
+
 export function collectDataFromBricks (bricks) {
   console.log('...')
   for (const block of bricks) {
