@@ -2,7 +2,7 @@ const fullUrl = window.location.host
 const subdomain = fullUrl.split('.')[0]
 export const projectId =
   subdomain.includes('localhost') || subdomain.includes('127')
-    ? '36'
+    ? '30'
     : subdomain
 
 const BASE_URL = `http://${projectId}.bimtrazer.com`
@@ -27,7 +27,7 @@ export async function storeBlocks (data, serviceType) {
   }
 }
 
-export async function sendChecksumData (data) {
+export async function evaluateModel (data) {
   const modelData = new FormData()
 
   modelData.append('Name', data.Name)
