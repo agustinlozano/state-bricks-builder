@@ -1,6 +1,5 @@
 import { IFCPROPERTYSINGLEVALUE, IFCPROPERTYSET, IFCRELDEFINESBYPROPERTIES, IFCPROJECT } from 'web-ifc'
 import viewer from '../../config/initViewer'
-import { normalizeGroundFloor, parseUnicode } from '../../utils/'
 import { checkIfExist } from './utils'
 
 const { ifcManager } = viewer.IFC.loader
@@ -110,14 +109,15 @@ export async function getDescriptions (modelID, paramsIds) {
   const descriptions = []
 
   for (const paramId of paramsIds) {
-    const { NominalValue } = await ifcManager.getItemProperties(modelID, paramId)
+    const { NominalValue, Name } = await ifcManager.getItemProperties(modelID, paramId)
 
-    const description = normalizeGroundFloor(
-      parseUnicode(NominalValue.value).toUpperCase().trim()
-    )
+    // const description = normalizeGroundFloor(
+    //   parseUnicode(NominalValue.value).toUpperCase().trim()
+    // )
 
     descriptions.push({
-      description
+      description: NominalValue.value.trim(),
+      name: Name.value.trim()
     })
   }
 
