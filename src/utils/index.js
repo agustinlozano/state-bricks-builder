@@ -18,7 +18,9 @@ export {
 export {
   validate,
   validateAnArray,
-  checkException
+  checkException,
+  checkElementsHaveProjectId,
+  checkBlocksHaveCode
 } from './validate'
 
 export { highlightMaterial, shortcuts }
