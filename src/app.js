@@ -3,13 +3,13 @@ import initMyApp from './boot'
 
 import {
   renderSelectedElm,
-  shortcuts,
-  highlightMaterial
+  highlightMaterial,
+  renderProjectInfo,
+  shortcuts
 } from './utils/'
 
 import { PROJECTS_INFO } from './config/projects'
 import { projectId } from './services/allservices'
-import { renderProjectInfo } from './utils/renderStuff'
 
 renderProjectInfo(PROJECTS_INFO, projectId)
 
