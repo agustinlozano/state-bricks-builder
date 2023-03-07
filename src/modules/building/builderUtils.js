@@ -119,3 +119,28 @@ export function checkBlocksHaveCode (blocks) {
 
   checkException(hasCode, 'Some blocks have the BtzCode UNASSIGNED.')
 }
+
+export function joinBlocksWithSameDescription (blocks) {
+  const blocksWithSameDescription = {}
+
+  blocks.forEach(block => {
+    const { BtzDescription, Elements } = block
+
+    if (blocksWithSameDescription[BtzDescription]) {
+      blocksWithSameDescription[BtzDescription].Elements.push(...Elements)
+    } else {
+      blocksWithSameDescription[BtzDescription] = block
+    }
+  })
+
+  return Object.values(blocksWithSameDescription)
+}
+
+export function collectDataFromBricks (bricks) {
+  console.log('...')
+  for (const block of bricks) {
+    const { Elements, BtzDescription } = block
+    console.log(`Block "${BtzDescription}" has \t ${Elements.length} elements.`)
+  }
+  console.log('...')
+}
