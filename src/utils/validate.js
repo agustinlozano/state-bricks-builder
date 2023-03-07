@@ -22,3 +22,18 @@ export const checkException = (param, message) => {
 
   return param
 }
+
+export function checkElementsHaveProjectId (blocks) {
+  blocks.forEach(block => {
+    const { Elements } = block
+    const hasProjectId = Elements.every(element => element.ProjectId !== '' || element.ProjectId !== null || element.ProjectId !== undefined)
+
+    checkException(hasProjectId, 'Some elements have the ProjectId empty.')
+  })
+}
+
+export function checkBlocksHaveCode (blocks) {
+  const hasCode = blocks.every(block => block.BtzCode !== 'UNASSIGNED')
+
+  checkException(hasCode, 'Some blocks have the BtzCode UNASSIGNED.')
+}
