@@ -1,3 +1,5 @@
+import { transformDescriptions } from './serviceUtils'
+
 const fullUrl = window.location.host
 const subdomain = fullUrl.split('.')[0]
 export const projectId =
@@ -6,6 +8,28 @@ export const projectId =
     : subdomain
 
 const BASE_URL = `http://${projectId}.bimtrazer.com`
+
+export async function assignBlocksDescription (descriptionsMap) {
+  descriptionsMap = transformDescriptions(descriptionsMap)
+
+  const URL = BASE_URL + '/api/PostDataProj'
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      ID: 'DescriptionMap',
+      DATA: descriptionsMap
+    })
+  }
+
+  try {
+    const res = await fetch(URL, options)
+    return await res.json()
+  } catch (error) {
+    console.error('There was an error: ', error)
+    return null
+  }
+}
 
 export async function storeBlocks (data, serviceType) {
   const URL = BASE_URL + '/api/PostDataProj'
