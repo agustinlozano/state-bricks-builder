@@ -97,7 +97,7 @@ export async function findElements (modelID, relProp) {
     const { expressID, GlobalId } = await ifcManager.getItemProperties(modelID, element)
 
     elements.push({
-      expressID,
+      ExpresId: expressID,
       GlobalId: GlobalId.value,
       ProjectId: 'UNASSIGNED',
       HasProperties: []
